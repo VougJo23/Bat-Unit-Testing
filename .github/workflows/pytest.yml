@@ -32,5 +32,5 @@ jobs:
           pip install pytest pytest-mock
 
       - name: Run pytest
-        run: pytest tests/test_bat_functions.py
+        run: pytest tests/ -v
 
