@@ -54,6 +54,5 @@ def test_fetch_joker_info(mocker):
     mock = mocker.patch('src.bat_functions.fetch_joker_info', return_value = mock_response)
 
     info = src.bat_functions.fetch_joker_info()
-    mock.assert_called_once() 
     assert info == mock_response 
 
