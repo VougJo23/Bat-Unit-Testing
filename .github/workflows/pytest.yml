@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install -r pytest pytest-mock
+          pip install pytest pytest-mock
 
       - name: Run pytest
         run: pytest tests/test_bat_functions.py
