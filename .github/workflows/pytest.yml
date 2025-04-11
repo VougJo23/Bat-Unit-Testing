@@ -17,8 +17,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-            ref: unit-testing
 
       - name: Set up Python
         uses: actions/setup-python@v4
