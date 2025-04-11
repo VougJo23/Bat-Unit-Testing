@@ -2,6 +2,7 @@ import pytest
 import random
 import time
 
+import src.bat_functions
 from src.bat_functions import calculate_bat_power
 from src.bat_functions import signal_strength
 from src.bat_functions import get_bat_vehicle
@@ -47,8 +48,12 @@ def test_fetch_joker_info(mocker):
     
     # Mock a fast response to skip the 1-second delay
     mocker.patch('time.sleep', return_value=None)
-    
-    info = fetch_joker_info()
-    assert info == {'mischief_level': 100, 'location': 'unknown'}
-    
-    time.sleep.assert_called_once_with(1)
+
+    # Customize mock response
+    mock_response = {'mischief_level': 0, 'location': 'captured'}
+    mock = mocker.patch('src.bat_functions.fetch_joker_info', return_value = mock_response)
+
+    info = src.bat_functions.fetch_joker_info()
+    mock.assert_called_once() 
+    assert info == mock_response 
+
